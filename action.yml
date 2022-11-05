@@ -1,9 +1,5 @@
 name: 'Milo'
 description: 'Runs milo on the passed folder'
-outputs:
-  result:
-    description: "Command output"
-    value: ${{ steps.run_milo.outputs.result }}
 runs:
   using: "composite"
   steps:
