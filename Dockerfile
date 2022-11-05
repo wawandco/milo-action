@@ -1,5 +1,6 @@
 # Container image that runs your code
 FROM alpine
+RUN apk add --no-cache --update curl
 
 RUN curl -sf https://gobinaries.com/wawandco/milo/cmd/milo | sh
 RUN milo version
