@@ -1,5 +1,8 @@
 name: 'Milo'
 description: 'Runs Milo on the passed folder'
+inputs:
+  folder:
+    default: "."
 runs:
   using: "composite"
   steps:
@@ -14,5 +17,5 @@ runs:
     
     - id: run_milo
       run: |
-        milo review .
+        milo review ${{inputs.folder}}
       shell: bash
