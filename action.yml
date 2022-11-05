@@ -14,13 +14,15 @@ runs:
       uses: actions/setup-go@v3
       with:
         go-version: "1.18.x"
+
+    - id: install_milo
+      run: go install "github.com/wawandco/milo/cmd/milo@v0.6.0"
+      shell: bash
     
     - id: run_milo
       env:
         folder: ${{ inputs.folder }}
       working-directory: .
       run: |
-        go install "github.com/wawandco/milo/cmd/milo@v0.6.0"
-        
         milo review "${folder}"
       shell: bash
