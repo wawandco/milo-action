@@ -14,7 +14,7 @@ runs:
     - id: install_milo
       run: |
         wget https://github.com/wawandco/milo/releases/download/${{inputs.version}}/milo_Linux_x86_64.tar.gz
-        tar -xvzf milo_Linux_x86_64.tar.gz
+        tar -xzf milo_Linux_x86_64.tar.gz
         sudo mv milo /usr/local/bin/milo
       shell: bash
     
