@@ -22,5 +22,5 @@ runs:
       run: |
         go install "github.com/wawandco/milo/cmd/milo@v0.6.0"
         
-        milo review ${folder}
+        milo review "${folder}"
       shell: bash
