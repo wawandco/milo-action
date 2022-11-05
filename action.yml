@@ -17,8 +17,6 @@ runs:
       run: |
         go install "github.com/wawandco/milo/cmd/milo@v0.6.0"
         
-        $(go env GOPATH)/bin/milo review ./...
-        
-        echo "Success!!"
+        echo "$(milo review ./...)"
         exit 0
       shell: bash
