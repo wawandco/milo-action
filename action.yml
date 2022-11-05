@@ -1,12 +1,5 @@
 name: 'Milo'
-description: 'Runs milo on the passed folder'
-inputs:
-  folder:
-    description: |
-      The folder that milo will scan. The value set here will
-      be passed to the milo command.
-    required: false
-    default: "./..."
+description: 'Runs Milo on the passed folder'
 runs:
   using: "composite"
   steps:
@@ -20,9 +13,6 @@ runs:
       shell: bash
     
     - id: run_milo
-      env:
-        folder: ${{ inputs.folder }}
-      working-directory: .
       run: |
-        milo review "${folder}"
+        milo review ./...
       shell: bash
