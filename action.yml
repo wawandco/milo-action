@@ -1,5 +1,9 @@
 name: 'Milo'
 description: 'Runs milo on the passed folder'
+outputs:
+  result:
+    description: "Command output"
+    value: ${{ steps.run_milo.outputs.result }}
 runs:
   using: "composite"
   steps:
@@ -13,6 +17,5 @@ runs:
       run: |
         go install "github.com/wawandco/milo/cmd/milo@v0.6.0"
         
-        IFS=$'\n'
-        $(go env GOPATH)/bin/milo review ./... | cat
+        echo "result=$($(go env GOPATH)/bin/milo review ./...)" >> $GITHUB_OUTPUT
       shell: bash
