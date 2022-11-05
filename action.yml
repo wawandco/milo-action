@@ -1,5 +1,12 @@
 name: 'Milo'
 description: 'Runs milo on the passed folder'
+inputs:
+  folder:
+    description: |
+      The folder that milo will scan. The value set here will
+      be passed to the milo command.
+    required: false
+    default: "./..."
 runs:
   using: "composite"
   steps:
@@ -9,10 +16,12 @@ runs:
         go-version: "1.18.x"
     
     - id: run_milo
+      env:
+        folder: ${{ inputs.folder }}
       working-directory: .
       run: |
         go install "github.com/wawandco/milo/cmd/milo@v0.6.0"
         
-        echo "$(milo review ./...)"
+        echo "$(milo review ${folder})"
         exit 0
       shell: bash
