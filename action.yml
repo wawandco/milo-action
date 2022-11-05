@@ -22,6 +22,5 @@ runs:
       run: |
         go install "github.com/wawandco/milo/cmd/milo@v0.6.0"
         
-        echo "$(milo review ${folder})"
-        exit 0
+        milo review ${folder}
       shell: bash
