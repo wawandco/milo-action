@@ -1,18 +1,16 @@
 name: 'Milo'
 description: 'Runs Milo on the passed folder'
+author: "Antonio Pagano"
 inputs:
   folder:
+    description: "Folder to review with Milo"
     default: "."
 runs:
   using: "composite"
   steps:
-    - id: install_go
-      uses: actions/setup-go@v3
-      with:
-        go-version: "1.18.x"
-
     - id: install_milo
-      run: go install "github.com/wawandco/milo/cmd/milo@v0.6.0"
+      run: |
+        curl -sf https://gobinaries.com/wawandco/milo/cmd/milo | sh
       shell: bash
     
     - id: run_milo
