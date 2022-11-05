@@ -1,0 +1,5 @@
+name: 'Milo Action'
+description: 'Runs milo on the passed folder'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
