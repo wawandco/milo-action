@@ -13,5 +13,6 @@ runs:
       run: |
         go install "github.com/wawandco/milo/cmd/milo@v0.6.0"
         
-        $(go env GOPATH)/bin/milo review ./...
+        IFS=$'\n'
+        $(go env GOPATH)/bin/milo review ./... | cat
       shell: bash
