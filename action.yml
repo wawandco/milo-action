@@ -14,9 +14,7 @@ runs:
       shell: bash
     
     - id: run_milo
-      env:
-        folder: ${{inputs.folder}}
       run: |
-        echo "Running `milo review ${folder}`"
-        milo review "${folder}"
+        echo "Running `milo review  ${{inputs.folder}}`"
+        milo review "${{inputs.folder}}"
       shell: bash
