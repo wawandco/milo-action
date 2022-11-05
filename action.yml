@@ -17,6 +17,5 @@ runs:
     
     - id: run_milo
       run: |
-        echo "Running `milo review  ${{inputs.folder}}`"
         milo review "${{inputs.folder}}"
       shell: bash
