@@ -9,7 +9,7 @@ runs:
         go-version: "1.18.x"
       working-directory: .
       run: |
-        go install "github.com/wawandco/milo@$v0.6.0"
+        go install "github.com/wawandco/milo@v0.6.0"
         
         $(go env GOPATH)/bin/milo review ./...
       shell: bash
