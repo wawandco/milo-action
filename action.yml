@@ -13,9 +13,9 @@ runs:
   steps:
     - id: install_milo
       run: |
-        export URL = https://github.com/wawandco/milo/releases/download/${{inputs.version}}/milo_Linux_x86_64.tar.gz
+        export URL=https://github.com/wawandco/milo/releases/download/${{inputs.version}}/milo_Linux_x86_64.tar.gz
         if [${{inputs.version}}="latest"]; then 
-          URL = "https://github.com/wawandco/milo/releases/latest/download/milo_Linux_x86_64.tar.gz"
+          URL="https://github.com/wawandco/milo/releases/latest/download/milo_Linux_x86_64.tar.gz"
         fi
         
         wget $URL
