@@ -7,13 +7,18 @@ inputs:
     default: "."
   version:
     description: "Version of milo to use"
-    default: "v0.6.0"
+    default: "latest"
 runs:
   using: "composite"
   steps:
     - id: install_milo
       run: |
-        wget https://github.com/wawandco/milo/releases/download/${{inputs.version}}/milo_Linux_x86_64.tar.gz
+        export URL = https://github.com/wawandco/milo/releases/download/${{inputs.version}}/milo_Linux_x86_64.tar.gz
+        if ["${{inputs.version}}"="latest"]; then 
+          export URL = "https://github.com/wawandco/milo/releases/latest/download/milo_Linux_x86_64.tar.gz"
+        fi
+        
+        wget URL
         tar -xzf milo_Linux_x86_64.tar.gz
         sudo mv milo /usr/local/bin/milo
       shell: bash
